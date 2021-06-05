@@ -2,6 +2,7 @@ def detect_faces(path):
     from google.cloud import vision
     import io
     client = vision.ImageAnnotatorClient()
+    exist = 0
 
     with io.open(path, 'rb') as image_file:
         content = image_file.read()
@@ -13,21 +14,15 @@ def detect_faces(path):
 
     likelihood_name = ('UNKNOWN', 'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE',
                        'LIKELY', 'VERY_LIKELY')
-    print('Faces:')
+    if faces:
+        exist = 1
+    else:
+        exist = 0
+    
+    return exist
 
-    for face in faces:
-        print('anger: {}'.format(likelihood_name[face.anger_likelihood]))
-        print('joy: {}'.format(likelihood_name[face.joy_likelihood]))
-        print('surprise: {}'.format(likelihood_name[face.surprise_likelihood]))
-
-        vertices = (['({},{})'.format(vertex.x, vertex.y)
-                    for vertex in face.bounding_poly.vertices])
-
-        print('face bounds: {}'.format(','.join(vertices)))
-
-    if response.error.message:
-        raise Exception('{}\nFor more info on error messages, check: '
-            'https://cloud.google.com/apis/design/errors'.format(response.error.message))
+    
 
 
-detect_faces("3.jpg")
+exist = detect_faces("2.jpg")
+print(exist)
