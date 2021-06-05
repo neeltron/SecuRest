@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "cognitio-7378d",
+  "private_key_id": "6b01196b42746a12025b19d6fd1780f6dd694b06",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCoXsooggiB8Mro\nshTM9ZnkEWNg5e9O+nYO2FOkMVUgVqkZBllAIDWOGXoTDV/ZB2ylK0swzraZGnRl\n01mRtAx3aFBJz87JWJwmKDEUpSu73bE1y4G9a4UVIGKyHTApwZcp/9KEwpT3K6ok\n+nQHRoqbYi20D91teLRfUzLjxbAo5WrvzJ8aKFHiXIc2iSyltthJdv0Mo98LnNV0\ndO0xcjTK9xb/Gv8a7sGAKrv+4NhwPcAt8hh7Kss0dQwPnWeuvFez+Ep7G5iFRENf\noK/A22Nfa6MwqO0sL5i9ldx6K7o4Br2XSA4HNHDxhwPFNwYVl6+LqOHyb/FPzz1M\nfqKnBWPjAgMBAAECggEAI75j2m+okLVmzjmoEs79CZ7rYxHNWQ3w7DvendffQ4tC\nQM7JOcTcubsM4GiRdYiO9w2W29i2iRBFr6xLspPvpZXenZzhQHtwQuV7be+Wtj5d\nNZdrhqQBz7ddXIS3ydWQWtk1fvu0FjkN2OXWpgjCujQAkd5gWrIqUKZgAlzghf2+\nLHocwEt0A5SvF8M92vtGu4UL78J90FEbMkaFi7LmtUjKD58wx7DUcwELE1UwvG7J\nLmLKJ2R+/U19KSPaHCx8jgobS+R/o0MK77CXoa3y8k2Rrt+3zN5YWaodhXIZCEIe\nq7H6iKCyvkucpUjYeR5t2awHW43rhcIrYpnnbEEkYQKBgQDQJzvR9xlkKMAKZJIK\n4wSLwRViHtNkFLBzM/Iea6E56s3hIOVf1vYrrDA14efZEI11zQpxYeNNgRCARcSb\n3eMWgdEXE2nZT6/vUJcia9x2RMwbSwE6uz3JnYZ8/bnhJMRmLu/HnM7pwE1lEJsh\nF/Xp9bTMuxYRs5hxfmaeOs+WMQKBgQDPEodSMtw2XismM/CDz3H++vGwCZJ64EY9\ngAPG6W4834tsb1zmG6B7s/jK9ZK/RmEDBRuH7Pp2GvCBuv9ugjbXpLyMQkpwcWwa\nKJ8/wJtoO4gIw1AsiH50gTjhTn0GwYqsYelIHZvgAm1cq2sVZuaD1ypczNP5j2nM\nZehJflxSUwKBgQDFwtDBzotQLqst9JkQQNmb0cl4HKNobYOrIEpDfqyCM0SBRNjI\nMppVqdVwC/5Tq7dKmZD3YjIr+5hq1l5SXACZ7KJz0xz4uw4DR8Ufjey6bOiicaNs\nYmL0v3X8IK/OaTkzgBqNwryPNwYRJDLOwU4Bh1DMRl9UWBZYlef3IxcAsQKBgQCS\nxipezCgk7UiecpBXjZHazxrC0XYfXJrM+tEyi8EUqssTmDf77rcpF58QlVJn+8XF\nszgZd5LsZhn1iouFVAz1exIeRNqoquyZ+hMuyCIflprMw0wv1Kv1fqbHpK+gO01E\n9L263SngdTf5SJPFfsODzd58Gr9hlBLEy7MDbOqZewKBgQCuefwzmGGFvhMPXZEI\neAy/e7dglqTZSaGIGi5X0EN7B0fF6Y8Na+Weu3bt8VIzwkeABgmiOAaoWF6NkD4/\n0zpWWl11B3o4DZYM2sbtOb3V3dwPnrKeOcncu0faLPCxmA+QZJHIgCK65Fp3iqp0\nrXrOp3PG7i4D4tY9XNcV+46MZA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "securest@cognitio-7378d.iam.gserviceaccount.com",
+  "client_id": "104579249628630408951",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/securest%40cognitio-7378d.iam.gserviceaccount.com"
+}
