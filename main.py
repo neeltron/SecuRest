@@ -1,8 +1,12 @@
 from picamera import PiCamera
 from time import sleep
 
-camera = PiCamera()
+cam = PiCamera()
 
-camera.start_preview()
+cam.start_preview()
 sleep(5)
-camera.stop_preview()
+for i in range(0, 5):
+    cam.capture(str(i)+".jpg")
+    sleep(1)
+    
+cam.stop_preview()
