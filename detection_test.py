@@ -1,5 +1,4 @@
 def detect_faces(path):
-    """Detects faces in an image."""
     from google.cloud import vision
     import io
     client = vision.ImageAnnotatorClient()
@@ -12,7 +11,6 @@ def detect_faces(path):
     response = client.face_detection(image=image)
     faces = response.face_annotations
 
-    # Names of likelihood from google.cloud.vision.enums
     likelihood_name = ('UNKNOWN', 'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE',
                        'LIKELY', 'VERY_LIKELY')
     print('Faces:')
@@ -28,10 +26,8 @@ def detect_faces(path):
         print('face bounds: {}'.format(','.join(vertices)))
 
     if response.error.message:
-        raise Exception(
-            '{}\nFor more info on error messages, check: '
-            'https://cloud.google.com/apis/design/errors'.format(
-                response.error.message))
+        raise Exception('{}\nFor more info on error messages, check: '
+            'https://cloud.google.com/apis/design/errors'.format(response.error.message))
 
 
 detect_faces("3.jpg")
