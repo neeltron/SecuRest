@@ -8,6 +8,7 @@ import time
 import base64
 import requests
 import serial
+import mysql.connector
 
 
 def detect_faces(path):
@@ -29,6 +30,20 @@ def detect_faces(path):
         exist = 0
     
     return exist
+
+
+def insert(link):
+    db = mysql.connector.connect(
+    host = "remotemysql.com",
+    user = "hwW4R6cA0s",
+    password = "9bVe4xsxvX",
+    database = "hwW4R6cA0s"
+    )
+    cursor = db.cursor()
+    sql = "INSERT INTO SecuRest (link) VALUES ('"+link+"')"
+    val = str(link)
+    cursor.execute(sql, val)
+    db.commit()
 
 
 distance = serial.Serial('COM5')
@@ -68,6 +83,7 @@ while True:
                         res = requests.post(url, payload)
                         dict = res.json()
                         url = dict['data']['url']
+                        insert(url)
                 else:
                     print("No face")
                 
