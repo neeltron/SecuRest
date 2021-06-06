@@ -2,6 +2,7 @@ import cv2
 import time
 import base64
 import requests
+import serial
 
 
 def detect_faces(path):
@@ -26,10 +27,16 @@ def detect_faces(path):
     return exist
 
 
+distance = serial.Serial('COM5')
+distance.flushInput()
+
 iter = 0
 cam = cv2.VideoCapture(0)
 
 while True:
+    ser = distance.readline()
+    decoded = float(ser[0:len(ser)-2].decode("utf-8"))
+    print(decoded)
     ret, frame = cam.read()
     cv2.imshow('frame', frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
