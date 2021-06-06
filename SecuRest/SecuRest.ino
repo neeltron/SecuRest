@@ -11,6 +11,7 @@ void setup() {
   pinMode(2, INPUT);
   pinMode(3, OUTPUT);
   s1.attach(sPin);
+  s1.write(90);
   Serial.begin(9600);
 }
 
@@ -24,7 +25,7 @@ void loop() {
   duration = pulseIn(2, HIGH);
   distance = duration * 0.034 / 2;
   Serial.println(distance);
-  if(distance < 10 && iter > 10) {
+  if (distance < 10 && iter > 10) {
     s1.write(0);
     delay(1000);
     s1.write(40);
@@ -37,5 +38,6 @@ void loop() {
     delay(1000);
     s1.write(0);
     delay(1000);
+    s1.write(90);
   }
 }
