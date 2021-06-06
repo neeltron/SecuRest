@@ -48,6 +48,7 @@ while True:
             cv2.imshow('frame', frame)
             iter += 1
             if iter <= 5:
+                time.sleep(1)
                 cv2.imwrite(str(iter)+".jpg", frame)
                 exist = detect_faces(str(iter)+".jpg")
                 if exist == 1:
