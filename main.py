@@ -59,7 +59,6 @@ while True:
                             "image": base64.b64encode(file.read()),
                         }
                         res = requests.post(url, payload)
-                            
                         dict = res.json()
                         url = dict['data']['url']
                 else:
@@ -72,7 +71,6 @@ while True:
         if err_count > 100:
             break
         
-    
     
 cam.release()
 cv2.destroyAllWindows()
