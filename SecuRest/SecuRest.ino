@@ -2,6 +2,7 @@
 
 int distance = 0;
 int sPin = 4;
+int iter = 0;
 long duration = 0;
 
 Servo s1;
@@ -14,6 +15,7 @@ void setup() {
 }
 
 void loop() {
+  iter++;
   digitalWrite(3, LOW);
   delayMicroseconds(2);
   digitalWrite(3, HIGH);
@@ -22,13 +24,18 @@ void loop() {
   duration = pulseIn(2, HIGH);
   distance = duration * 0.034 / 2;
   Serial.println(distance);
-  s1.write(0);
-  delay(1000);
-  s1.write(40);
-  delay(1000);
-  s1.write(80);
-  delay(1000);
-  s1.write(120);
-  delay(1000);
-  s1.write(160);
+  if(distance < 10 && iter > 10) {
+    s1.write(0);
+    delay(1000);
+    s1.write(40);
+    delay(1000);
+    s1.write(80);
+    delay(1000);
+    s1.write(120);
+    delay(1000);
+    s1.write(160);
+    delay(1000);
+    s1.write(0);
+    delay(1000);
+  }
 }
