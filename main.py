@@ -31,35 +31,44 @@ distance = serial.Serial('COM5')
 distance.flushInput()
 
 iter = 0
+err_count = 0
+serial_iter = 0
+flag = 0
 cam = cv2.VideoCapture(0)
 
 while True:
-    ser = distance.readline()
-    decoded = float(ser[0:len(ser)-2].decode("utf-8"))
-    print(decoded)
-    ret, frame = cam.read()
-    cv2.imshow('frame', frame)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        iter += 1
-        if iter <= 5:
-            cv2.imwrite(str(iter)+".jpg", frame)
-            exist = detect_faces(str(iter)+".jpg")
-            time.sleep(1)
-            if exist == 1:
-                with open(str(iter)+".jpg", "rb") as file:
-                    url = "https://api.imgbb.com/1/upload"
-                    payload = {
-                        "key": "4e8e6f9baef8b46f75ac078d4bded8c1",
-                        "image": base64.b64encode(file.read()),
-                    }
-                    res = requests.post(url, payload)
-                    
-                    dict = res.json()
-                    url = dict['data']['url']
+    try:
+        ser = distance.readline()
+        decoded = float(ser[0:len(ser)-2].decode("utf-8"))
+        print(decoded)
+        serial_iter += 1
+        if decoded < 10 and serial_iter > 2:
+            flag = 1
+            ret, frame = cam.read()
+            cv2.imshow('frame', frame)
+            iter += 1
+            if iter <= 5:
+                cv2.imwrite(str(iter)+".jpg", frame)
+                exist = detect_faces(str(iter)+".jpg")
+                if exist == 1:
+                    with open(str(iter)+".jpg", "rb") as file:
+                        url = "https://api.imgbb.com/1/upload"
+                        payload = {
+                            "key": "4e8e6f9baef8b46f75ac078d4bded8c1",
+                            "image": base64.b64encode(file.read()),
+                        }
+                        res = requests.post(url, payload)
+                            
+                        dict = res.json()
+                        url = dict['data']['url']
+                else:
+                    print("No face")
+                
             else:
-                print("No face")
-        
-        else:
+                break
+    except:
+        err_count += 1
+        if err_count > 100:
             break
         
     
