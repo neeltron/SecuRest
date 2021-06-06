@@ -64,14 +64,16 @@ while True:
                 else:
                     print("No face")
                 
+                distance.write("move")
+                
             else:
                 break
     except:
         err_count += 1
         if err_count > 100:
             break
-        
-    
+
+
 cam.release()
 cv2.destroyAllWindows()
 distance.close()
