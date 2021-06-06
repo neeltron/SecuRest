@@ -4,6 +4,7 @@ int distance = 0;
 int sPin = 4;
 int iter = 0;
 long duration = 0;
+int var = 0;
 
 Servo s1;
 
@@ -26,22 +27,11 @@ void loop() {
   distance = duration * 0.034 / 2;
   Serial.println(distance);
   int move_signal = Serial.read();
-  if (Serial.available()) {
-    Serial.println(int(Serial.read()));
-    if (move_signal == 77) {
-      s1.write(0);
-      delay(1000);
-      s1.write(40);
-      delay(1000);
-      s1.write(80);
-      delay(1000);
-      s1.write(120);
-      delay(1000);
-      s1.write(160);
-      delay(1000);
-      s1.write(0);
-      delay(1000);
-      s1.write(90);
+  if (move_signal == 77) {
+    s1.write(var);
+    var += 40;
+    if(var > 160) {
+      var = 0;
     }
   }
 }

@@ -30,6 +30,7 @@ def detect_faces(path):
 distance = serial.Serial('COM5')
 distance.flushInput()
 
+
 iter = 0
 err_count = 0
 serial_iter = 0
@@ -43,6 +44,7 @@ while True:
         print(decoded)
         serial_iter += 1
         if decoded < 10 and serial_iter > 2:
+            distance.write("M".encode())
             flag = 1
             ret, frame = cam.read()
             cv2.imshow('frame', frame)
@@ -51,6 +53,7 @@ while True:
                 time.sleep(1)
                 cv2.imwrite(str(iter)+".jpg", frame)
                 exist = detect_faces(str(iter)+".jpg")
+                
                 if exist == 1:
                     with open(str(iter)+".jpg", "rb") as file:
                         url = "https://api.imgbb.com/1/upload"
@@ -64,7 +67,7 @@ while True:
                 else:
                     print("No face")
                 
-                distance.write("move")
+                
                 
             else:
                 break
