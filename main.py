@@ -13,7 +13,6 @@ def detect_faces(path):
 
     with io.open(path, 'rb') as image_file:
         content = image_file.read()
-
     image = vision.Image(content=content)
 
     response = client.face_detection(image=image)
